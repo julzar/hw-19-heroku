@@ -18,7 +18,7 @@ const Search = () => {
 
   return (
   <Form inline onSubmit={submitHandler} className="mb-2">
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" id='search' name='search' />
+      <FormControl type="text" placeholder="Search by first/last name" className="mr-sm-2" id='search' name='search' />
       <Button type='submit' variant="outline-success">Search</Button>
   </Form>
   )

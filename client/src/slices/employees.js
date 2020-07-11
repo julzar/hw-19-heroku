@@ -4,6 +4,7 @@ export const initialState = {
   loading: false,
   hasErrors: false,
   filteredBy: false,
+  isSorted: false,
   employees: [],
 }
 
@@ -24,14 +25,18 @@ const employeesSlice = createSlice({
       state.hasErrors = true
     },
     getEmployeesFiltered: (state, { payload }) => {
-      state.filteredBy = payload
+      state.filteredBy = payload.toLowerCase()
+    },
+    getEmployeesSorted: state => {
+      state.isSorted = true
     }
   },
 })
 
-export const { getEmployees, getEmployeesSuccess, getEmployeesFailure, getEmployeesFiltered} = employeesSlice.actions
+export const { getEmployees, getEmployeesSuccess, getEmployeesFailure, getEmployeesFiltered, getEmployeesSorted} = employeesSlice.actions
 export const employeesSelector = state => state.employees
 export const filteredSelector = state => state.filteredBy
+export const sortedSelector = state => state.isSorted
 export default employeesSlice.reducer
 
 export function fetchEmployees() {
